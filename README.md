@@ -37,6 +37,17 @@ mm-tripeptide-arv/
 ├── README.md
 ├── informe_modelado_molecular.pdf      # Informe completo del trabajo
 │
+├── entrega_final/                      # Ficheros brutos del flujo de trabajo GROMACS
+│   ├── 1-build/                        # Construcción del sistema (topología, solvatación)
+│   ├── 2-equilibration-298/            # Equilibración NVT a 298 K
+│   ├── 2-equilibration-400/            # Equilibración NVT a 400 K
+│   ├── 3-run-298/                      # Simulación de producción a 298 K
+│   ├── 3-run-400/                      # Simulación de producción a 400 K
+│   ├── 3-run-500ps/                    # Simulación extendida de 500 ps a 298 K
+│   ├── 4-analysis-298/                 # Datos de análisis extraídos a 298 K
+│   ├── 4-analysis-400/                 # Datos de análisis extraídos a 400 K
+│   └── 4-analysis-500ps/               # Datos de análisis de la simulación extendida
+│
 ├── analysis/                           # Análisis de las simulaciones a 298 K y 400 K
 │   ├── angle/                          # Ángulos de enlace (Cα–C=O, N–Cα–Cβ)
 │   ├── dihedral/                       # Ángulos diedros φ/ψ y diagramas de Ramachandran
@@ -88,10 +99,9 @@ Cada subcarpeta de `analysis/` contiene:
 
 ## Datos brutos de GROMACS
 
-Los ficheros brutos generados por GROMACS (topologías, trayectorias, ficheros `.tpr`, `.trr`, `.gro`, `.mdp`, etc.) no se incluyen en este repositorio por su gran tamaño (~6.8 GB comprimidos). Están disponibles bajo petición.
+La carpeta `entrega_final/` incluye los ficheros generados durante el flujo de trabajo completo de GROMACS: topologías (`.top`, `.itp`), ficheros de parámetros (`.mdp`), estructuras (`.gro`, `.g96`), binarios de ejecución (`.tpr`), energías (`.edr`), puntos de reinicio (`.cpt`) y datos de análisis (`.xvg`, `.dat`, `.ndx`).
 
-<!-- Si los subes a un servicio externo, descomenta y edita la siguiente línea: -->
-<!-- Los datos brutos están disponibles en: [enlace](URL) -->
+Se han excluido del repositorio los ficheros de trayectoria completa (`.trr`, `.xtc`) y los ficheros PDB con la trayectoria del sistema completo con solvente (`cartoon-sys-298.pdb`, `cartoon-sys-400.pdb`), que superan los 400 MB por archivo y exceden el límite permitido por GitHub.
 
 ---
 
@@ -99,7 +109,7 @@ Los ficheros brutos generados por GROMACS (topologías, trayectorias, ficheros `
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/laurallamas/mm-tripeptide-arv.git
+   git clone https://github.com/laullamas/mm-tripeptide-arv.git
    cd mm-tripeptide-arv
    ```
 
