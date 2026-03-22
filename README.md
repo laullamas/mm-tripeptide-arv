@@ -8,27 +8,6 @@ Trabajo realizado para la asignatura **Modelado Molecular** del Máster Universi
 
 ---
 
-## Descripción del proyecto
-
-Se llevaron a cabo dos simulaciones NVT de 2 ps (paso de integración 0.5 fs) del tripéptido ACE-ALA-ARG-VAL-NME en disolución acuosa explícita (modelo TIP3P), empleando el campo de fuerzas CHARMM27 y el software GROMACS 2016.4. El objetivo principal es analizar comparativamente el efecto de la temperatura sobre las propiedades estructurales, energéticas y dinámicas del sistema.
-
-Adicionalmente, se incluye un análisis extendido opcional de una simulación de **500 ps a 298 K** con mayor resolución temporal.
-
-### Sistema molecular
-
-| Propiedad | Valor |
-|---|---|
-| Secuencia | ACE – ALA – ARG – VAL – NME |
-| Campo de fuerzas | CHARMM27 (con correcciones CMAP) |
-| Modelo de agua | TIP3P |
-| Átomos totales | 2636 (62 soluto + 2574 solvente) |
-| Moléculas de agua | 858 |
-| Contraión | 1 Cl⁻ (neutralización de carga) |
-| Caja de simulación | Cúbica, 3.0 nm de lado |
-| Colectivo | NVT (v-rescale) |
-
----
-
 ## Estructura del repositorio
 
 ```
@@ -71,57 +50,11 @@ Cada subcarpeta de `analysis/` contiene:
 
 ---
 
-## Análisis realizados
-
-| Análisis | Carpeta | Propiedad estudiada |
-|---|---|---|
-| Temperatura | `analysis/temperature/` | Evolución temporal de la temperatura instantánea |
-| Energía | `analysis/energy/` | Energía cinética y total; verificación del teorema de equipartición |
-| Distancias de enlace | `analysis/distance/` | Distancias C=O (ALA-2) y Cα–Cβ (ARG-3) |
-| Ángulos de enlace | `analysis/angle/` | Ángulos Cα–C=O y N–Cα–Cβ; distribuciones angulares |
-| Ángulos diedros | `analysis/dihedral/` | Ángulos φ/ψ; diagramas de Ramachandran |
-| Radio de giro | `analysis/gyrate/` | Compacidad global del tripéptido |
-| Puentes de hidrógeno | `analysis/hbonds/` | Número de H-bonds intra e intermoleculares |
-| Velocidades | `analysis/velocities/` | Distribución de velocidades y ajuste de Maxwell-Boltzmann |
-| **Opcional** | `optional/` | Simulación de 500 ps: Ramachandran, temperatura y velocidades |
-
----
-
-## Herramientas utilizadas
-
-- **GROMACS 2016.4** — Simulaciones de dinámica molecular
-- **CHARMM27 + TIP3P** — Campo de fuerzas y modelo de agua
-- **Python 3** con **Jupyter Notebooks** — Análisis y visualización
-  - NumPy, Matplotlib, SciPy
-- **PyMOL** — Visualización molecular
-
----
-
 ## Datos brutos de GROMACS
 
 La carpeta `entrega_final/` incluye los ficheros generados durante el flujo de trabajo completo de GROMACS: topologías (`.top`, `.itp`), ficheros de parámetros (`.mdp`), estructuras (`.gro`, `.g96`), binarios de ejecución (`.tpr`), energías (`.edr`), puntos de reinicio (`.cpt`) y datos de análisis (`.xvg`, `.dat`, `.ndx`).
 
-Se han excluido del repositorio los ficheros de trayectoria completa (`.trr`, `.xtc`) y los ficheros PDB con la trayectoria del sistema completo con solvente (`cartoon-sys-298.pdb`, `cartoon-sys-400.pdb`), que superan los 400 MB por archivo y exceden el límite permitido por GitHub.
-
----
-
-## Cómo reproducir el análisis
-
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/laullamas/mm-tripeptide-arv.git
-   cd mm-tripeptide-arv
-   ```
-
-2. Instalar las dependencias de Python:
-   ```bash
-   pip install numpy matplotlib scipy jupyter
-   ```
-
-3. Abrir cualquier notebook de análisis:
-   ```bash
-   jupyter notebook analysis/energy/energy_analysis.ipynb
-   ```
+Se han excluido del repositorio los ficheros de trayectoria completa (`.trr`, `.xtc`) y los ficheros PDB del sistema con solvente (`cartoon-sys-*.pdb`, ~400 MB cada uno), ya que superan el límite de tamaño de archivo permitido por GitHub.
 
 ---
 
