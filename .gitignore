@@ -6,6 +6,9 @@
 # Datos brutos de GROMACS (demasiado grandes para GitHub)
 raw_data.zip
 
+# Archivos de backup de GROMACS (#nombre#)
+\#*\#
+
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
@@ -13,6 +16,3 @@ raw_data.zip
 __pycache__/
 *.pyc
 *.pyo
-
-# Archivos de backup de GROMACS
-\#*\#
