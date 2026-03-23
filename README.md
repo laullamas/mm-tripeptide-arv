@@ -1,4 +1,4 @@
-# Dinámica Molecular del Tripéptido ACE-ALA-ARG-VAL-NME
+# Dinámica Molecular del Tripéptido ARV
 
 Simulaciones de dinámica molecular (DM) del tripéptido **ARV** (Ala-Arg-Val) solvatado en agua, a **298 K** y **400 K**, en el colectivo NVT.
 
